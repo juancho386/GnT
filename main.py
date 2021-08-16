@@ -9,7 +9,7 @@ ROJO   = (255,   0,   0)
 
 
 def main():
-	BG_POS=0
+	background_x_position=0
 	pygame.init()
 	dimensiones = (800, 600)
 
@@ -18,7 +18,7 @@ def main():
 	background = pygame.image.load("./assets/backgrounds/bg0.png").convert()
 
 	all_sprites = pygame.sprite.Group()
-	player = Pj(screen)
+	player = Pj("./assets/pj",screen)
 	all_sprites.add(player)
 
 	clock = pygame.time.Clock()
@@ -42,7 +42,7 @@ def main():
 
 
 
-		pygame.display.flip() # no se si va acá o abajo
+		# pygame.display.flip() # no se si va acá o abajo
 
 		# Logic
 
@@ -50,12 +50,12 @@ def main():
 
 
 		# Drawings
-		BG_POS = BG_POS + player.speed
-		screen.blit(background, [BG_POS,0])                 # fondo
+		background_x_position = background_x_position + player.speed
+		screen.blit(background, [background_x_position,0])  # fondo
 		all_sprites.draw(screen)                            # personajes
 		# draw_text(screen, str(score), 25, WIDTH // 2, 10) # textos
 		# draw_shield_bar(screen, 5, 5, player.shield)      # HUD
-		# pygame.display.flip()                               # buffer dump
+		pygame.display.flip()                               # buffer dump
 		clock.tick(18)                                      # TICK
 	pygame.quit()
 
