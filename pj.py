@@ -23,7 +23,6 @@ class Pj(pygame.sprite.Sprite):
 		self.image = self.running_right[0]
 		self.speed = 0
 
-		print(dir(screen))
 		self.rect = self.image.get_rect()
 		self.rect.centerx = screen.get_width() // 2
 		self.rect.bottom = screen.get_height() - 10
