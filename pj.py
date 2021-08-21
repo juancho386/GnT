@@ -33,7 +33,9 @@ class Pj(pygame.sprite.Sprite):
 			self.running_state=0
 			self.framed_passed=0
 		else:
-			if self.framed_passed < 2: # cuantos frames banco antes de is al siguiente cuadro de running
+			if self.framed_passed < 2: # cuantos frames banco antes de ir al siguiente cuadro de running
+				if self.running_state==0:
+					self.running_state=1
 				self.framed_passed+=1
 			else:
 				self.framed_passed=0
